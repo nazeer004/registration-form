@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+<body bgcolor="black">
+<style>
+.inputbox {
+  position: relative;
+  width: 196px;
+}
+
+.inputbox input {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px 10px;
+  background: transparent;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+  color: #23242a;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.inputbox span {
+  position: absolute;
+  left: 0;
+  padding: -10px 10px 10px;
+  font-size: 1em;
+  color: #8f8f8f;
+  letter-spacing: 00.05em;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.inputbox input:valid ~span,
+.inputbox input:focus ~span {
+  color: #45f3ff;
+  -webkit-transform: translateX(0px) translateY(-70px);
+      -ms-transform: translateX(0px) translateY(-70px);
+          transform: translateX(0px) translateY(-70px);
+  font-size: 0,75em;
+}
+
+.inputbox i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #45f3ff;
+  border-radius: 4px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.inputbox input:valid ~i,
+.inputbox input:focus ~i {
+  height: 44px;
+}
+</style>
+<style>
+button {
+  background-color: transparent;
+  width: 13em;
+  height: 3.3em;
+  border: 2px solid #1abc9c;
+  border-radius: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #1abc9c;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+button .txt {
+  transition: .4s ease-in-out;
+  position: absolute;
+}
+
+button .txt2 {
+  transform: translateY(1em) scale(0);
+  color: #212121;
+  position: absolute;
+}
+
+button .loader-container {
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  border-radius: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  overflow: hidden;
+}
+
+button .loader-container .loader {
+  height: 100%;
+  width: 100%;
+  background-color: #1abc9c;
+  border-radius: inherit;
+  transform: translateX(-13em);
+}
+
+button:focus {
+  transition: .4s ease-in-out .4s;
+  animation: scaling 1.5s ease-in-out 0s 1 both;
+}
+
+button:focus .txt {
+  position: absolute;
+  transform: translateY(-5em);
+  transition: .4s ease-in-out;
+}
+
+button:focus .txt2 {
+  transform: translateY(0) scale(1);
+  transition: .3s ease-in-out 1.7s;
+}
+
+button:focus .loader {
+  display: block;
+  transform: translate(0);
+  transition: .8s cubic-bezier(0,.4,1,.28) .4s;
+  animation: loading;
+}
+
+@keyframes scaling {
+  20% {
+    height: 1.5em;
+  }
+
+  80% {
+    height: 1.5em;
+  }
+
+  100% {
+    height: 3.3em;
+  }
+}
+</style>
+<center>
+<form>
+<h1 style="background-color:#00CED1">Registration form<br>
+<p  style="background-color:#00CED1">Fill this form to create account</p>
+</h1>
+<hr>
+<br>
+<div class="inputbox">
+    <input required="" type="text">
+    <span>Username</span>
+    <i></i>
+</div>
+<br><br>
+<div class="inputbox">
+    <input required="" type="text">
+    <span>Address</span>
+    <i></i>
+</div>
+<br><br>
+<div class="inputbox">
+    <input required="" type="tel" maxlength="10">
+    <span>Contact</span>
+    <i></i>
+</div>
+<br><br>
+<div class="inputbox">
+    <input required="" type="text">
+    <span>Email</span>
+    <i></i>
+</div>
+<br><br>
+<div class="inputbox">
+    <input required="" type="password">
+    <span>Password</span>
+    <i></i>
+</div>
+<br><br>
+<button>
+  <span class="txt">create account</span>
+  <span class="txt2">account created</span>
+  <span class="loader-container">
+    <span class="loader"></span>
+  </span>
+</button>
+</form>
+</center>
+</body>
+</html>
